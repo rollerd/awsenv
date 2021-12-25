@@ -72,6 +72,9 @@ func updateConfig(awsCredFile, newEnv string) {
 		}
 	}
 
+	// remove default section if it exists
+	cfg.DeleteSection("default")
+
 	for _, key := range cfg.Section(newEnv).KeyStrings() {
 		_, err := cfg.Section("default").NewKey(key, cfg.Section(newEnv).Key(key).String())
 		if err != nil {
