@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  gobuild:
+    image: golang:1.18beta1-buster
+    environment:
+      - GOOS=darwin
+      - GOARCH=amd64
+    volumes:
+      - .:/data
+      - $HOME/.aws:/root/.aws
+    command: /bin/bash
+    working_dir: /data
