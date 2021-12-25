@@ -27,6 +27,7 @@ Step 2: If you have an existing `[default]` section in your `~/.aws/credentials`
 Step 3: Copy the awsenv binary to your /usr/local/bin directory and make it executable:
 
 ```
+tar -xf darwin_amd64.tar
 mv awsenv /usr/local/bin
 chmod 755 /usr/local/bin/awsenv
 ```
