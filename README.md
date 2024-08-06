@@ -46,9 +46,6 @@ The script also creates a file called `.awsenv` in your home directory that is p
 There is a docker-compose file included that can be used to build the binary (default macos environment variables are set).
 
 ```
-docker-compose run gobuild
-# make any modifications you need
-go mod tidy
-go build awsenv.go
+docker run  -it -e CGO_ENABLED=1 -v `pwd`:/app -w /app docker.elastic.co/beats-dev/golang-crossbuild:1.21.12-darwin-arm64-debian10 --build-cmd "go mod init github.com/rollerd/awsenv;go mod tidy;go build" -p "darwin/arm64"
 ```
 

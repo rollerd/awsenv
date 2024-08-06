@@ -1,7 +1,19 @@
 module github.com/rollerd/awsenv
 
-go 1.18
+go 1.21.12
 
-require gopkg.in/ini.v1 v1.66.2
+require (
+	github.com/spf13/cobra v1.8.1
+	golang.design/x/clipboard v0.7.0
+	gopkg.in/ini.v1 v1.67.0
+)
 
-require github.com/stretchr/testify v1.7.0 // indirect
+require (
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/stretchr/testify v1.9.0 // indirect
+	golang.org/x/exp v0.0.0-20190731235908-ec7cb31e5a56 // indirect
+	golang.org/x/image v0.6.0 // indirect
+	golang.org/x/mobile v0.0.0-20230301163155-e0f57694e12c // indirect
+	golang.org/x/sys v0.5.0 // indirect
+)

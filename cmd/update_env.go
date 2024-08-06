@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func main() {
+func updateEnv(newEnv string) {
 	// Create path to aws credentials file (default location)
 	homeDir := os.Getenv("HOME")
 	awsCredFile := fmt.Sprintf("%s/.aws/credentials", homeDir)
@@ -15,21 +15,9 @@ func main() {
 	// Create path to file that holds the name of the new default environment (useful for tmux status bar info)
 	envFile := fmt.Sprintf("%s/.awsenv", homeDir)
 
-	newEnv := getEnv()
-
 	updateConfig(awsCredFile, newEnv)
 
 	updateEnvFile(newEnv, envFile)
-}
-
-// Get target config from commandline arg
-func getEnv() (env string) {
-	if len(os.Args) < 2 {
-		fmt.Println("awsenv requires one argument: <env to use>")
-		os.Exit(1)
-	}
-	env = os.Args[1]
-	return
 }
 
 // Create backup of existing cred file
