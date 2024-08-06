@@ -1,6 +1,6 @@
 # awsenv
 
-awsenv is a small tool for quickly switching between aws credentials.
+awsenv is a small tool for quickly switching between aws credentials and optionally copying credentials to the clipboard as 'export commands' for use in other terminal windows/ssh sessions.
 
 ### Purpose
 If you use aws-cli, boto3, or similar set of tools, you probably already know that you can configure your credentials in an `.ini` style config file that lives in your home directory.
@@ -42,8 +42,17 @@ You should be able to view your `~/.aws/credentials` file and see that there is 
 
 The script also creates a file called `.awsenv` in your home directory that is populated with the name of the new active aws_profile. This can be useful for something like a tmux status bar script that can poll the file and display the value.
 
+#### Copying Credentials
+Run:
+
+```
+awsenv source <existing credential section>
+```
+
+The credentials will be copied to your clipboard as commands to set environment variables. eg "export AWS_ACCESS_KEY_ID=<some access key>"
+
 #### Building/Modifying
-There is a docker-compose file included that can be used to build the binary (default macos environment variables are set).
+A docker image built for crosscompiling can be used to build the binary (default macos below for CGO): https://github.com/elastic/golang-crossbuild
 
 ```
 docker run  -it -e CGO_ENABLED=1 -v `pwd`:/app -w /app docker.elastic.co/beats-dev/golang-crossbuild:1.21.12-darwin-arm64-debian10 --build-cmd "go mod init github.com/rollerd/awsenv;go mod tidy;go build" -p "darwin/arm64"

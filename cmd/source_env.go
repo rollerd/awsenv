@@ -34,6 +34,7 @@ func sourceProfile(sourceEnv string) {
 		exportString.WriteString(newString)
 	}
 
+	fmt.Printf("Copied %s values to clipboard!\n", sourceEnv)
 	copyToClipboard(exportString)
 }
 

@@ -1,6 +1,3 @@
-/*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-*/
 package cmd
 
 import (
@@ -10,7 +7,7 @@ import (
 // sourceCmd represents the source command
 var sourceCmd = &cobra.Command{
 	Use:   "source",
-	Short: "Create export commands for specified profile",
+	Short: "Copy profile creds to clipboard as export commands",
 	Long: `Create a set of export commands with the values from the specified profile. 
 Commands are copied to the clipboard`,
 	Args: cobra.ExactArgs(1),
