@@ -3,8 +3,8 @@
 awsenv is a small tool for quickly switching between aws credentials and optionally copying credentials to the clipboard as 'export commands' for use in other terminal windows/ssh sessions.
 
 ### Purpose
-If you use aws-cli, boto3, or similar set of tools, you probably already know that you can configure your credentials in an `.ini` style config file that lives in your home directory.
-Each section in this config file contains the different 'profiles' that you can use to authenticate to AWS or assume various roles (see [AWS named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) for more info).
+If you use aws-cli, boto3, or similar set of tools, you probably already know that you can configure your credentials (and config) in `.ini` style config files that live in your home directory.
+Each section in these config files contain the different 'profiles' that you can use to authenticate to AWS or assume various roles (see [AWS named profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) for more info).
 
 Normally you would need to set the **AWS_PROFILE** environment variable to switch between these profiles:
 
